@@ -44,7 +44,7 @@ const getData = () => {
 
 //! Display the data from localstorage
 const createTask = () => {
-  tasks.innerHTML;
+  tasks.innerHTML = "";
   data.map((ele, index) => {
     return (tasks.innerHTML += `
             <div id="${index}">
@@ -53,11 +53,12 @@ const createTask = () => {
                 <p class="fw-bold">${ele.task}</p>
                 <div class="options">
                     <i onclick="editTask(this)" class="fa-solid fa-pen-to-square fa-beat" style="color: #FFD43B;" data-bs-toggle="modal" data-bs-target="#form" ></i>
-                  <i onclick="deleteTask(this); " class="fa-solid fa-trash-can fa-shake" style="color: #FFD43B;"></i>
+                  <i onclick="deleteTask(this);  createTask()" class="fa-solid fa-trash-can fa-shake" style="color: #FFD43B;"></i>
                 </div>
             </div>
         `);
   });
+  resetForm();
 };
 
 //! reset Form
